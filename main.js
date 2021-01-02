@@ -40,6 +40,7 @@ function main(){
     const closeBtn =document.querySelector('.btn_close')
     const saveBtn =document.querySelector('.btn_save')
     const labelName = document.querySelector('.js_name')
+    const saveMesage = document.querySelector('.message')
 
 
     openBtn.onclick = function(e){
@@ -54,8 +55,7 @@ function main(){
 
     saveBtn.onclick = function(e){
         e.preventDefault()
-        console.log(labelName.value)
-        modal.style.display='none'
+        saveMesage.textContent = `Gracias ${labelName.value} por ayudar a los animalitos :)`        
     }
 
     closeBtn.onclick = function(e){
