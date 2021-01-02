@@ -8,6 +8,18 @@ function main(){
         document.querySelector('.js_options').classList.toggle("show")
     };
 
+    window.onclick = function(e){
+        if(!e.target.matches('.js_btn-dropdown')){
+            const contentDrop = document.querySelectorAll('.js_options')
+            for(let i=0;i<contentDrop.length;i++){
+                const openDD = contentDrop[i];
+                if (openDD.classList.contains('show')) {
+                    openDD.classList.remove('show');
+                  }
+            }
+        }
+    }
+
     //*Reto 2
     const bloques = new Bloques();
     bloques.init();
@@ -62,11 +74,6 @@ function main(){
         e.preventDefault()
         modal.style.display='none'
     }
-
-
-
-
-
 
 
 }
