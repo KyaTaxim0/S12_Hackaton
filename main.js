@@ -2,23 +2,39 @@ import {Bloques} from './Bloque.js';
 
 function main(){
     //*Reto 1
-    const drop_btn = document.querySelector('.js_btn-dropdown');
-    drop_btn.onclick = function(e){
-        e.preventDefault()
-        document.querySelector('.js_options').classList.toggle("show")
-    };
+    function dropdownButton(options){
+        const {
+            elem
+        } = options;
+        const element = document.querySelector(elem);
+        this.addEvent(element)
+        this.hideEvent(element,elem)
+    }
 
-    window.onclick = function(e){
-        if(!e.target.matches('.js_btn-dropdown')){
-            const contentDrop = document.querySelectorAll('.js_options')
-            for(let i=0;i<contentDrop.length;i++){
-                const openDD = contentDrop[i];
-                if (openDD.classList.contains('show')) {
-                    openDD.classList.remove('show');
-                  }
+    dropdownButton.prototype.addEvent = function (element){
+        element.onclick = function(e) {
+            e.preventDefault()
+            element.nextSibling.nextSibling.classList.toggle("show")
+        }
+    }
+
+    dropdownButton.prototype.hideEvent = function (element,elem){
+        window.onclick = function(e){
+            if(!e.target.matches(elem)){
+                if(element.nextSibling.nextSibling.classList.contains('show')){
+                    element.nextSibling.nextSibling.classList.remove('show')
+                }
             }
         }
     }
+
+
+    //Se crean los objetos con la plantilla definida en donde el 
+    //dato que se pasa es el 'elem'
+    const buttonDDown = new dropdownButton({
+        elem: '.js_btn-dropdown'
+    })
+
 
     //*Reto 2
     const bloques = new Bloques();
