@@ -28,9 +28,6 @@ function main(){
         }
     }
 
-
-    //Se crean los objetos con la plantilla definida en donde el 
-    //dato que se pasa es el 'elem'
     const buttonDDown = new dropdownButton({
         elem: '.js_btn-dropdown'
     })
@@ -63,34 +60,50 @@ function main(){
     //*Reto 3
 
     const openBtn = document.querySelector('.btn_openModal')
-    const modal = document.querySelector('.js_modal')
-    const xSpan = document.querySelector('.btn_closeModal')
-    const closeBtn =document.querySelector('.btn_close')
-    const saveBtn =document.querySelector('.btn_save')
-    const labelName = document.querySelector('.js_name')
-    const saveMesage = document.querySelector('.message')
 
+    function Modal(options){
+        this.element = document.querySelector(options.element);
+        this.elementClose = this.element.querySelector('.modal__close');
+        this.elementCancel = this.element.querySelector('.btn_cancel');
+        this.elementSave = this.element.querySelector('.btn_save');
+
+        this.registerEvens(options)
+
+    }
+
+    Modal.prototype.open = function(){
+        this.element.style.display='block'
+    }
+
+    Modal.prototype.close = function(){
+        this.element.style.display='none'
+    }
+
+    Modal.prototype.registerEvens = function(options){
+        this.elementClose.onclick = () =>{
+            this.close()
+        }
+        this.elementCancel.onclick = () =>{
+            this.close()
+        }
+        
+        this.elementSave.onclick = () =>{
+             options.cbSave()
+        }    
+    }
 
     openBtn.onclick = function(e){
         e.preventDefault()
-        modal.style.display='block'
+        modalWindow.open()
     }
 
-    xSpan.onclick = function(e){
-        e.preventDefault()
-        modal.style.display='none'
-    }
 
-    saveBtn.onclick = function(e){
-        e.preventDefault()
-        saveMesage.textContent = `Gracias ${labelName.value} por ayudar a los animalitos :)`        
-    }
-
-    closeBtn.onclick = function(e){
-        e.preventDefault()
-        modal.style.display='none'
-    }
-
+    const modalWindow = new Modal({
+        element:'.jss_modal',
+        cbSave : function(){
+            document.querySelector('.message').textContent = `Gracias ${document.querySelector('.js_name').value} por ayudar a los animalitos :)`
+        }
+    })
 
 }
 

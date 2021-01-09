@@ -36,20 +36,24 @@
     <form class="fm_modal"action="">
         <button class="btn_openModal">Ayudemos a los animalitos</button>
     </form>
-    <div class="js_modal">
-        <span class="btn_closeModal">x</span>
-        <form class="js_contentModal">
-            <div class="con_container">
-                <h2>Bienvenido!</h2>
-                <p>Ingresa tu nombre y estaras firmando en apoyo a los animales en extincion</p>
-                <input class="js_name" type="text" placeholder="Nombre">
-                <p class="message"></p>
-                <div class="js_contentOptions">
-                    <button class="btn_close">Cerrar</button>
-                    <button class="btn_save">Guardar & Cerrar</button>
-                </div>
+    <div class="jss_modal">
+        <div class="modal_template">
+            <header class="js_modal_header">
+                <h3>Bienvenido!</h3>
+                <span class="modal__close">X</span>
+            </header>
+            <div class="js_modal_body">
+                <form class="js_contentModal">                
+                        <p>Ingresa tu nombre y estaras firmando en apoyo a los animales en extincion</p>
+                        <input class="js_name" type="text" placeholder="Nombre">
+                        <p class="message"></p>
+                </form>
             </div>
-        </form>
+            <footer class="js_modal_footer">
+                <button class="btn_cancel">Cancelar</button>
+                <button class="btn_save">Guardar & Cerrar</button>
+            </footer>
+        </div>
     </div>
 </body>
 </html>

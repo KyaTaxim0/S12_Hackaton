@@ -1,5 +1,7 @@
 * {
   font-family: sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /*RETO 1*/
@@ -97,54 +99,70 @@
   background-color: #2f569e;
 }
 
-.js_modal {
-  display: none;
+.jss_modal {
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: #474e5d;
-  padding-top: 50px;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
 }
 
-.js_modal .con_container {
-  padding: 16px;
+.jss_modal .modal_template {
+  background: white;
+  max-width: 600px;
+}
+
+.jss_modal header {
+  padding: 20px;
+  background: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.jss_modal .modal__close {
+  background: #8a3030;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  font-size: 14px;
   text-align: center;
+  line-height: 30px;
+  font-weight: bold;
 }
 
-.js_modal .con_container .js_name {
-  width: 50%;
-  margin: 10px 20px;
+.jss_modal .js_modal_body {
+  padding: 20px;
 }
 
-.js_modal .con_container .btn_close, .js_modal .con_container .btn_save {
-  float: left;
-  width: 50%;
-}
-
-.js_modal .con_container .btn_close {
-  background-color: #df4a4a;
+.jss_modal .js_modal_footer {
+  padding: 20px;
+  background: cornflowerblue;
   color: white;
-  border: none;
-  padding: 10px 20px;
-}
-
-.js_modal .con_container .btn_save {
-  background-color: #98b13f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-}
-
-.js_modal .js_contentModal {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
-  /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%;
+  font-weight: bold;
 }
 
 .btn_closeModal {
